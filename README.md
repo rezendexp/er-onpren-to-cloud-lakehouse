@@ -1,5 +1,3 @@
----
-
 ## 👥 Divisão de Responsabilidades
 
 ### 🖥️ Infraestrutura & Virtualização (On-Premises)
