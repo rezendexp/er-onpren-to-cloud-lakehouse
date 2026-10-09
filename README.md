@@ -1,20 +1,24 @@
 ---
 
-## 👥 Divisão de Responsabilidades
+conteudo: |
+  ---
+  ## 👥 Divisão de Responsabilidades
 
-### 🖥️ Infraestrutura & Virtualização (On-Premises)
-- **Topologia de Rede:** Configuração de vSwitches no Hyper-V (Rede Privada isolada e Rede Externa/NAT).
-- **Provisionamento e Hardening:** Configuração de VMs Linux (Ubuntu Server) para o banco de produção e o gateway intermediário.
-- **Segurança de Acesso:** Implementação de regras de firewall (`ufw`/`iptables`), segmentação de tráfego e políticas de menor privilégio para usuários de banco.
-- **Automação:** Scripts (PowerShell / Bash) para inicialização, backup de snapshots e monitoramento de integridade das VMs.
+  ### 🖥️ Infraestrutura & Virtualização (On-Premises)
+  - **Topologia de Rede:** Configuração de vSwitches no Hyper-V (Rede Privada isolada e Rede Externa/NAT).
+  - **Provisionamento e Hardening:** Configuração de VMs Linux (Ubuntu Server) para o banco de produção e o gateway intermediário.
+  - **Segurança de Acesso:** Implementação de regras de firewall (`ufw`/`iptables`), segmentação de tráfego e políticas de menor privilégio para usuários de banco.
+  - **Automação:** Scripts (PowerShell / Bash) para inicialização, backup de snapshots e monitoramento de integridade das VMs.
 
-### 📊 Engenharia de Dados & Cloud (AWS)
-- **Massa de Dados & Modelagem:** Modelagem relacional e script de geração de dados sintéticos de transações bancárias (via Python Faker).
-- **Pipeline de Extração Local:** Script conteinerizado (Docker) para extração incremental (watermarking por timestamp) e conversão colunar (Parquet particionado via DuckDB/PyArrow).
-- **Integração Cloud:** Envio seguro para bucket AWS S3 via AWS SDK (`boto3`) com políticas restritas de IAM.
-- **Camada Analítica:** Criação e particionamento de tabelas no AWS Athena para análises analíticas serverless.
+  ---
 
----
+  ### 📊 Engenharia de Dados & Cloud (AWS)
+  - **Massa de Dados & Modelagem:** Modelagem relacional e script de geração de dados sintéticos de transações bancárias (via Python Faker).
+  - **Pipeline de Extração Local:** Script conteinerizado (Docker) para extração incremental (watermarking por timestamp) e conversão colunar (Parquet particionado via DuckDB/PyArrow).
+  - **Integração Cloud:** Envio seguro para bucket AWS S3 via AWS SDK (`boto3`) com políticas restritas de IAM.
+  - **Camada Analítica:** Criação e particionamento de tabelas no AWS Athena para análises analíticas serverless.
+
+  ---
 
 ## 🗺️ Roadmap de Execução
 
