@@ -1,0 +1,22 @@
+name: Auto Create Pull Request
+
+on:
+  push:
+    branches:
+      - 'feature/**'
+      - 'fix/**'
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create Pull Request
+        uses: repo-sync/pull-request@v2
+        with:
+          destination_branch: "main"
+          pr_title: "PR automático: ${{ github.ref_name }}"
+          pr_body: "Pull Request gerado automaticamente via GitHub Actions após push na branch ${{ github.ref_name }}."
+          github_token: ${{ secrets.GITHUB_TOKEN }}
